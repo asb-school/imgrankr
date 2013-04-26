@@ -5,7 +5,7 @@ module.exports.adapters = {
 
 	// If you leave the adapter config unspecified 
 	// in a model definition, 'default' will be used.
-	'default': 'disk',
+	'default': 'mongo',
 	
 	// In-memory adapter for DEVELOPMENT ONLY
 	// (data is NOT preserved when the server shuts down)
@@ -23,6 +23,13 @@ module.exports.adapters = {
 		module: 'sails-dirty',
 		filePath: './.tmp/dirty.db',
 		inMemory: false
+	},
+
+	// MONGODB
+	mongo: {
+		module: 'sails-mongo',
+		database: 'imgrankr',
+		host: '127.0.0.1'
 	},
 
 	// MySQL is the world's most popular relational database.
