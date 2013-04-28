@@ -5,6 +5,5 @@
 var PostController = {
 
 
-
 };
 module.exports = PostController;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
 	<head>
 		<title><%- title %></title>
 
@@ -9,6 +9,14 @@
 		<!-- JavaScript and stylesheets from your assets folder are included here -->
 		<%- assets.css() %>
 		<%- assets.js() %>
+
+		<!-- Angular.JS -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+
+		<!-- jQuery -->
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
 	</head>
 
 	<body>
