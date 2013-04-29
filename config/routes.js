@@ -27,9 +27,27 @@ module.exports.routes = {
 		controller	: 'home'
 	},
 
-	'/api/post': 
+	// '/api/post': 
+	// {
+	// 	controller: 'post'
+	// },
+
+	'get /api/post':
 	{
-		controller: 'post'
+		controller: 'post',
+		action: 'defaultGet'
+	},
+
+	'get /api/post/:id':
+	{
+		controller: 'post',
+		action: 'findById'
+	},
+
+	'post /api/post':
+	{
+		controller: 'post',
+		action: 'create'
 	},
 
 	'/post':
