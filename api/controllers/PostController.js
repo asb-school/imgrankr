@@ -41,13 +41,14 @@ var PostController =
 		// Search by hashtag
 		if (request.param('hashtag'))
 		{
-			Post.findAll({ where: { hashtag: request.param('hashtag') } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
+			Post.findAll({ where: { hashtag: parseInt(request.param('hashtag')) } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
 		}
 
 		// Default -> #all hashtags
 		else
 		{
-			Post.findAll({ where: { hashtag: 'all' } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
+			// this is bad - need to get ANY hashtags, not just #all (1)
+			Post.findAll({ where: { hashtag: 1 } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
 		}
 	},
 
@@ -70,7 +71,7 @@ var PostController =
 				}
 				else
 				{
-					return response.json({ error: 'No valid post' }, 500);
+					return response.json({ error: 'No post found' }, 500);
 				}
 			}
 		});
@@ -80,33 +81,88 @@ var PostController =
 	// Create post
 	create: function(request, response)
 	{
+		// Create a post function
+		var createPost = function (givenHashtag)
+		{
+			Post.create(
+			{
+				title: request.param('title'),
+				url: request.param('url'),
+				likes: request.param('likes') || 0,
+				user: request.param('user'),
+				hashtag: givenHashtag
+
+			}).done(function (error, post)
+			{
+				// Error
+				if (error) return response.json(error, 500);
+
+				// Success
+				else return response.json({ success: 'Post created successfully', postUrl: 'http://www.imgrankr.com/api/post/' + post.id }, 200);
+			});
+		}
+
+		
 		// Can't create a post if you didn't set the right parameters
 		if (!request.param('title')) return response.json({ error: 'Title must be set' }, 500);
 		if (!request.param('url')) return response.json({ error: 'URL must be set' }, 500);
 		if (!request.param('user')) return response.json({ error: 'User must be set' }, 500);
 
-		// Set hashtag
-		var hashtag = request.param('hashtag') || 'all';
-
-		// Check valid hashtag
-		// if (var hashtag = request)
-
-		Post.create(
+		// Hashtag defined in request parameters?
+		if (request.param('hashtag'))
 		{
-			title: request.param('title'),
-			url: request.param('url'),
-			likes: request.param('likes') || 0,
-			user: request.param('user'),
-			hashtag: request.param('hashtag') || 'all'
+			// Check if it exists in hashtag collection
+			Hashtag.findAll({ where: { name: request.param('hashtag') } }, { options: { limit: 1 } }).done(function (error, result)
+			{
+				if (error)
+				{
+					console.log(error);
+				}
+				else
+				{
+					// Hashtag already exists in hashtag collection
+					if (result.length > 0)
+					{
+						// Check to make sure we have valid object
+						if (result[0])
+						{
+							// Create post with existing hashtag id
+							createPost(result[0].id);
+						}
+					}
 
-		}).done(function (error)
+					// Need to create a new hashtag
+					else
+					{
+						Hashtag.create(
+						{
+							name: request.param('hashtag')
+
+						}).done(function (error, hashtag)
+						{
+							if (error) 
+							{
+								console.log(error);
+							}
+							else
+							{
+								// Create post with newly created hashtag id
+								createPost(hashtag.id);
+							}
+						})
+					}
+				}
+			});
+		}
+
+		// No hashtag defined
+		else
 		{
-			// Error
-			if (error) return response.json(error, 500);
+			// Set default hashtag
+			console.log('default hashtag #all with id 1 to be set');
 
-			// Success
-			else return response.json({ success: 'Post created successfully' }, 200);
-		})
+			createPost(1);
+		}
 	}
 
 };

@@ -50,7 +50,18 @@ module.exports.routes = {
 		action: 'create'
 	},
 
+	'/api/hashtag':
+	{
+		controller: 'hashtag',
+	},
+
 	'/post':
+	{
+		controller: 'invalid',
+		action: 'default'
+	},
+
+	'/hashtag':
 	{
 		controller: 'invalid',
 		action: 'default'
