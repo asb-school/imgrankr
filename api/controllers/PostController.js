@@ -47,7 +47,7 @@ var PostController =
 		// Default -> all hashtags
 		else
 		{
-			Post.findAll({ where: { hashtag: { '$exists': true } } }, { options: { sort: { likes: -1 }, limit: 10 } }).done(sendResults);
+			Post.findAll({ where: { hashtag: { '$exists': true } } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
 		}
 	},
 
