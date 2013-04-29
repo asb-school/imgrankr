@@ -44,11 +44,10 @@ var PostController =
 			Post.findAll({ where: { hashtag: parseInt(request.param('hashtag')) } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
 		}
 
-		// Default -> #all hashtags
+		// Default -> all hashtags
 		else
 		{
-			// this is bad - need to get ANY hashtags, not just #all (1)
-			Post.findAll({ where: { hashtag: 1 } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
+			Post.findAll({ where: { hashtag: { '$exists': true } } }, { options: { sort: { likes: -1 }, limit: 10 } }).done(sendResults);
 		}
 	},
 
@@ -88,7 +87,7 @@ var PostController =
 			{
 				title: request.param('title'),
 				url: request.param('url'),
-				likes: request.param('likes') || 0,
+				likes: parseInt(request.param('likes')) || 0,
 				user: request.param('user'),
 				hashtag: givenHashtag
 
