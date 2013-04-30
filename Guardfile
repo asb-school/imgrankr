@@ -3,6 +3,10 @@
 
 guard 'livereload' do
   watch(%r{views/home/.+\.(ejs)$})
+  watch(%r{assets/js/.+\.(js)$})
+  watch(%r{assets/styles/.+\.(css)$})
+  watch(%r{assets/templates/.+\.(html)$})
+  watch(%r{views/.+\.(ejs)$})
   watch(%r{app/views/.+\.(erb|haml|slim)$})
   watch(%r{app/helpers/.+\.rb})
   watch(%r{public/.+\.(css|js|html)})

@@ -6760,7 +6760,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 .uneditable-input {
-  color: #222222;
+  color: #999999;
 }
 
 input[disabled],
@@ -6781,7 +6781,18 @@ textarea.focused {
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
+}
 
+input:focus,
+textarea:focus,
+input.focused,
+textarea.focused {
+  color: #ffffff;
+  -o-transition: .6s;
+  -ms-transition: .6s;
+  -moz-transition: .6s;
+  -webkit-transition: .6s;
+  transition: .6s;
 }
 
 input[type="file"]:focus,

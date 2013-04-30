@@ -32,6 +32,12 @@ module.exports.routes = {
 	// 	controller: 'post'
 	// },
 
+	'get /template/:id':
+	{
+		controller: 'template',
+		action: 'getTemplate'
+	},
+
 	'get /api/post':
 	{
 		controller: 'post',

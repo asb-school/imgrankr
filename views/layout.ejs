@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="imgrankr">
 	<head>
 		<title><%- title %></title>
 
 		<!-- Viewport mobile tag for sensible mobile support -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
-		<!-- JavaScript and stylesheets from your assets folder are included here -->
-		<%- assets.css() %>
-		<%- assets.js() %>
-
 		<!-- Angular.JS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
@@ -17,12 +13,13 @@
 		<!-- jQuery -->
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 
+		<!-- JavaScript and stylesheets from your assets folder are included here -->
+		<%- assets.css() %>
+		<%- assets.js() %>
+
 	</head>
 
 	<body>
-		<%- body %>
-
-		<!-- Templates from your view path are included here -->
-		<%- assets.templateLibrary() %>
+		<div ng-view></div>
 	</body>
 </html>

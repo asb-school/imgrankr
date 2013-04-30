@@ -32,7 +32,7 @@ var PostController =
 				}
 				else
 				{
-					return response.json({ error: 'No posts found'}, 500);
+					return response.json({ error: 'No posts found' }, 500);
 				}
 			}
 		}
@@ -157,9 +157,7 @@ var PostController =
 		// No hashtag defined
 		else
 		{
-			// Set default hashtag
-			console.log('default hashtag #all with id 1 to be set');
-
+			// Create post with default hashtag -> #all (id: 1)
 			createPost(1);
 		}
 	}
