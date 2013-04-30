@@ -1,20 +1,38 @@
-// Load angular module for app
+/*
+ *
+ *	imgrankr
+ *	andrew breja
+ *
+ *	app.js
+ *
+*/
 
 
-// Route configuration
-angular.module('imgrankr', ['ngResource'])
-	.config(['$routeProvider', function($routeProvider) 
-	{
-		$routeProvider
-			.when('/', { templateUrl: 'template/main.html', controller: mainController })
-			.when('/second', { templateUrl: 'template/second.html', controller: secondController })
-			.otherwise({ redirectTo: '/' });
-	}]);
+// Define angular application
+var application = angular.module('imgrankr', ['ngResource'])
+
+// Setup application route configuration
+application.config(['$routeProvider', function($routeProvider) 
+{
+	$routeProvider.when('/', { templateUrl: 'template/main.html', controller: mainController });
+	$routeProvider.when('/second', { templateUrl: 'template/second.html', controller: secondController });
+	$routeProvider.otherwise({ redirectTo: '/' });
+}]);
+
+// Setup resource factories
+application.factory('getAllPosts', function($resource)
+{
+	return $resource('/api/post');
+});
 
 
-function mainController($scope) 
+// Main controller
+function mainController($scope, getAllPosts) 
 {
 	$scope.greeting = 'age';
+	
+	// Get all posts
+	$scope.posts = getAllPosts.query();
 }
 
 function secondController($scope)
