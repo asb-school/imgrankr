@@ -17,14 +17,62 @@
 		<%- assets.css() %>
 		<%- assets.js() %>
 
+		
+
 	</head>
 
 	<body>
 
-		<a href="#/">Main</a>
-		<br />
-		<a href="#/second">Second</a>
+
+	<input type="checkbox" class="main-nav-check" id="main-nav-check" />
+<nav class="main-nav" id="main-nav">
+	<ul>
+  <li><a href="#">This</a></li>
+  <li><a href="#">Little</a></li>
+  <li><a href="#">Little</a></li>
+  <li><a href="#">Little</a></li>
+  
+</ul>
+</nav>
+
+<div class="page-wrap">
+
+  
+    <label for="main-nav-check" class="toggle-menu">
+      toggle me
+    </label>
+    
+
+    <div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<label for="main-nav-check" class="toggle-menu">
+					<a class="brand" href="#/">imgrankr</a>
+				</label>
+				<ul class="nav">
+					<li class="active"><a href="#/">Home</a></li>
+					<li><a href="#/second">Second</a></li>
+				</ul>
+
+				<form class="navbar-search pull-right">
+					<input type="text" class="search-query">
+					<button type="submit" class="btn btn-primary">Search</button>
+				</form>
+			</div>
+		</div>
+
+
 
 		<div ng-view></div>
+        
+ 
+  
+</div>
+
+
+
+		
+
+
+
 	</body>
 </html>
