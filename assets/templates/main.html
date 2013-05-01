@@ -9,7 +9,7 @@
 						<div class="image-title">{{post.title}}</div>
 						<div class="post-details">
 							<div class="likes">{{post.likes}}</div><div class="icon-like"></div>
-							<div class="hashtag"><a href="#">{{post.hashtag}}</a></div><div class="icon-tag"></div>
+							<div class="hashtag"><a href="#" ng-click="getByHashtag(post.hashtag)" ng-controller="mainController">{{post.hashtag}}</a></div><div class="icon-tag"></div>
 						</div>
 					</div>
 				</div>

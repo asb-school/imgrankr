@@ -20,6 +20,31 @@
 	</head>
 
 	<body>
+
+		<!-- Modal -->
+		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h3 id="myModalLabel">Create Post</h3>
+			</div>
+			<div ng-controller="createPost">
+				<form novalidate class="simple-form">
+					<div class="modal-body">
+						<label>Title</label>
+						<input type="text" ng-model="post.title" /><br />
+						<label>Image URL</label>
+						<input type="text" ng-model="post.url" /><br />
+						<label>Hashtag</label>
+						<input type="text" ng-model="post.hashtag" /><br />
+					<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+						<button class="btn btn-primary" ng-click="create(post)" data-dismiss="modal">Save changes</button>
+					</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
 		<div class="container">
 
 				<div class="navbar navbar-fixed-top container">
@@ -27,14 +52,14 @@
 						<div class="brand-padding"><a class="brand" href="#/"><img src="/images/title.png" /></a></div>
 						
 
-						<form class="navbar-search pull-left">
-							<input type="text" id="search-custom" placeholder="Search">
+						<form class="navbar-search pull-left" ng-submit="getByHashtag(hashtag)" ng-controller="mainController">
+							<input type="text" id="search-custom" ng-model="hashtag" placeholder="Search">
 						</form>
 
 						<div class="navigation-area-right">
 							<ul class="navigation-links">
 								<li><a href="#/second" class="icon-globe"></a></li>
-								<li><a href="#/second" class="icon-new"></a></li>
+								<li><a href="#myModal" data-toggle="modal" class="icon-new"></a></li>
 								<li><a href="#/" class="icon-home"></a></li>
 							</ul>
 						</div>

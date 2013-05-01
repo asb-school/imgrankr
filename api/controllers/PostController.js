@@ -112,7 +112,7 @@ var PostController =
 				title: request.param('title'),
 				url: request.param('url'),
 				likes: parseInt(request.param('likes')) || 0,
-				user: request.param('user'),
+				user: request.param('user') || 1,
 				hashtag: givenHashtag
 
 			}).done(function (error, post)
@@ -129,7 +129,7 @@ var PostController =
 		// Can't create a post if you didn't set the right parameters
 		if (!request.param('title')) return response.json({ error: 'Title must be set' }, 500);
 		if (!request.param('url')) return response.json({ error: 'URL must be set' }, 500);
-		if (!request.param('user')) return response.json({ error: 'User must be set' }, 500);
+		// if (!request.param('user')) return response.json({ error: 'User must be set' }, 500);
 
 		// Hashtag defined in request parameters?
 		if (request.param('hashtag'))
