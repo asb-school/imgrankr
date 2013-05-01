@@ -29,11 +29,72 @@ application.factory('getAllPosts', function($resource)
 // Main controller
 function mainController($scope, getAllPosts) 
 {
-	$scope.greeting = 'age';
-	
 	// Get all posts
-	$scope.posts = getAllPosts.query();
+	var allPosts = getAllPosts.query(function ()
+	{
+		$scope.posts = allPosts;
+
+		// var postsArray = [];
+		// var numberOfObjectsPerRow = 3;
+		// var counter = 1;
+
+		// // Check if we have posts
+		// if (allPosts)
+		// {
+		// 	console.log('allposts length: ', allPosts.length);
+
+		// 	rowObject = new Object();
+
+		// 	for (var iterator = 0; iterator < allPosts.length; iterator++)
+		// 	{
+		// 		if (counter === 1)
+		// 		{
+		// 			rowObject.column1 = allPosts[iterator];
+		// 			if (iterator === allPosts.length - 1)
+		// 			{
+		// 				postsArray.push(rowObject);
+		// 			}
+
+		// 			counter++;
+		// 		}
+		// 		else if (counter === 2)
+		// 		{
+		// 			rowObject.column2 = allPosts[iterator];
+		// 			if (iterator === allPosts.length - 1)
+		// 			{
+		// 				postsArray.push(rowObject);
+		// 			}
+
+		// 			counter++;
+		// 		}
+		// 		else if (counter === 3)
+		// 		{
+		// 			rowObject.column3 = allPosts[iterator];
+		// 			postsArray.push(rowObject);
+
+		// 			rowObject = new Object();
+
+		// 			counter = 1;
+		// 		}
+		// 	}
+
+		// 	$scope.posts = postsArray;
+		// }
+	});
 }
+
+
+// Eval directive
+application.directive('ngIf', function ()
+{
+	return 
+	{
+		link: function (scope, element, attributes)
+		{
+			if ()
+		}
+	}
+});
 
 function secondController($scope)
 {

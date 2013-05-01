@@ -271,6 +271,7 @@ a:focus {
 }
 
 .row {
+  padding-top: 24px;
   margin-left: -20px;
   *zoom: 1;
 }

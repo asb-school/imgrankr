@@ -1,104 +1,16 @@
 <div>
-	<div class="row">
-		<div class="row-container">
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://i.imgur.com/8QHmwDT.jpg" />
-					</div>
-					<div class="image-title">
-						Diving in the blue
-					</div>
-					<div class="post-details">
-						<div class="likes">14,409</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#earth</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://farm9.staticflickr.com/8120/8678450772_b7ebb34ae2_z.jpg" />
-					</div>
-					<div class="image-title">
-						Smelling the pretty flowers. Nice!
-					</div>
-					<div class="post-details">
-						<div class="likes">5,912</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#flowers</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://i.imgur.com/zCZrx0C.jpg" />
-					</div>
-					<div class="image-title">
-						The hardwood floors are to die for in this amazing house!
-					</div>
-					<div class="post-details">
-						<div class="likes">601</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#architecture</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="row-container">
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://i.imgur.com/8QHmwDT.jpg" />
-					</div>
-					<div class="image-title">
-						Diving in the blue
-					</div>
-					<div class="post-details">
-						<div class="likes">14,409</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#earth</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://farm9.staticflickr.com/8120/8678450772_b7ebb34ae2_z.jpg" />
-					</div>
-					<div class="image-title">
-						Smelling the pretty flowers. Nice!
-					</div>
-					<div class="post-details">
-						<div class="likes">5,912</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#flowers</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="span4">
-				<div class="post-box">
-					<div class="post-image">
-						<img src="http://i.imgur.com/zCZrx0C.jpg" />
-					</div>
-					<div class="image-title">
-						The hardwood floors are to die for in this amazing house!
-					</div>
-					<div class="post-details">
-						<div class="likes">601</div><div class="icon-like"></div>
-						<div class="hashtag"><a href="#">#architecture</a></div><div class="icon-tag"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div ng-repeat="post in posts">
+	<div ng-repeat="post in posts" ng-class="{ 'row': $index%3 == 2 }">
 		
-		{{post.id}} - {{post.title}} - {{post.likes}}
+		<div class="span4">
+			<div class="post-box">
+				<div class="post-image"><img src="{{post.url}}" /></div>
+				<div class="image-title">{{post.title}}</div>
+				<div class="post-details">
+					<div class="likes">{{post.likes}}</div><div class="icon-like"></div>
+					<div class="hashtag"><a href="#">{{post.hashtag}}</a></div><div class="icon-tag"></div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </div>

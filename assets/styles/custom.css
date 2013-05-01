@@ -18,10 +18,6 @@ body {
 	padding-left: 20px;
 }
 
-.row-container {
-	padding-top: 24px;
-}
-
 #search-custom {
 	width: 170px;
 	background: url(/images/icon-search.png) no-repeat;
