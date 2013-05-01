@@ -84,17 +84,17 @@ function mainController($scope, getAllPosts)
 }
 
 
-// Eval directive
-application.directive('ngIf', function ()
-{
-	return 
-	{
-		link: function (scope, element, attributes)
-		{
-			if ()
-		}
-	}
-});
+// // Eval directive
+// application.directive('ngIf', function ()
+// {
+// 	return 
+// 	{
+// 		link: function (scope, element, attributes)
+// 		{
+// 			if ()
+// 		}
+// 	}
+// });
 
 function secondController($scope)
 {

@@ -148,6 +148,10 @@ body {
 
 /*border-top: 1px solid #3d8abf;*/
 
+.post-container {
+	padding-bottom: 24px;
+}
+
 .post-box {
 	width: 298px;
 	height: 270px;

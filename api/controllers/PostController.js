@@ -4,9 +4,12 @@
 ---------------------*/
 var PostController = 
 {
+	
 	// Display all posts
 	defaultGet: function(request, response)
 	{
+		// var async = require('async');
+		
 		// Send results back to client
 		var sendResults = function (error, posts)
 		{
@@ -25,9 +28,30 @@ var PostController =
 
 					for (var post in posts)
 					{
-						filteredPosts.push(posts[post].values);
-					}
+						// Add posts to list
+						filteredPosts.push(posts[post].values)
 
+						// Get hashtag value
+						// Hashtag.find(posts[post].values.hashtag).done(function (error, result)
+						// {
+						// 	if (error) 
+						// 	{ 
+						// 		console.log(error);
+						// 	}
+						// 	else
+						// 	{
+						// 		// Update hashtag value
+						// 		console.log(result.name);
+						// 		posts[post].values.hashtag = result.name;
+						// 		console.log(posts[post].values.hashtag);
+
+						// 		// Add posts to list
+						// 		filteredPosts.push(posts[post].values);
+						// 	}
+						// });
+					}
+		
+					// Send filtered posts
 					return response.send(filteredPosts);
 				}
 				else
@@ -41,7 +65,7 @@ var PostController =
 		// Search by hashtag
 		if (request.param('hashtag'))
 		{
-			Post.findAll({ where: { hashtag: parseInt(request.param('hashtag')) } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
+			Post.findAll({ where: { hashtag: request.param('hashtag') } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
 		}
 
 		// Default -> all hashtags
@@ -111,54 +135,57 @@ var PostController =
 		if (request.param('hashtag'))
 		{
 			// Check if it exists in hashtag collection
-			Hashtag.findAll({ where: { name: request.param('hashtag') } }, { options: { limit: 1 } }).done(function (error, result)
-			{
-				if (error)
-				{
-					console.log(error);
-				}
-				else
-				{
-					// Hashtag already exists in hashtag collection
-					if (result.length > 0)
-					{
-						// Check to make sure we have valid object
-						if (result[0])
-						{
-							// Create post with existing hashtag id
-							createPost(result[0].id);
-						}
-					}
+			// Hashtag.findAll({ where: { name: request.param('hashtag') } }, { options: { limit: 1 } }).done(function (error, result)
+			// {
+			// 	if (error)
+			// 	{
+			// 		console.log(error);
+			// 	}
+			// 	else
+			// 	{
+			// 		// Hashtag already exists in hashtag collection
+			// 		if (result.length > 0)
+			// 		{
+			// 			// Check to make sure we have valid object
+			// 			if (result[0])
+			// 			{
+			// 				// Create post with existing hashtag id
+			// 				createPost(result[0].id);
+			// 			}
+			// 		}
 
-					// Need to create a new hashtag
-					else
-					{
-						Hashtag.create(
-						{
-							name: request.param('hashtag')
+			// 		// Need to create a new hashtag
+			// 		else
+			// 		{
+			// 			Hashtag.create(
+			// 			{
+			// 				name: request.param('hashtag')
 
-						}).done(function (error, hashtag)
-						{
-							if (error) 
-							{
-								console.log(error);
-							}
-							else
-							{
-								// Create post with newly created hashtag id
-								createPost(hashtag.id);
-							}
-						})
-					}
-				}
-			});
+			// 			}).done(function (error, hashtag)
+			// 			{
+			// 				if (error) 
+			// 				{
+			// 					console.log(error);
+			// 				}
+			// 				else
+			// 				{
+			// 					// Create post with newly created hashtag id
+			// 					createPost(hashtag.id);
+			// 				}
+			// 			})
+			// 		}
+			// 	}
+			// });
+
+			// Create post with given hashtag value
+			createPost(request.param('hashtag'));
 		}
 
 		// No hashtag defined
 		else
 		{
 			// Create post with default hashtag -> #all (id: 1)
-			createPost(1);
+			createPost('all');
 		}
 	}
 
