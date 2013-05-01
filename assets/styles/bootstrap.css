@@ -10,10 +10,9 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
-.size-to-940 {
-  width: 940px;
-  margin-left: auto;
-  margin-right: auto;
+input .search-field-input {
+  background-color: #ff8800;
+  font-size: 44px;
 }
 
 .clearfix {
@@ -4370,7 +4369,7 @@ input[type="submit"].btn.btn-mini {
 }
 
 .brand-padding {
-  padding-top: 5px;
+  padding-top: 0px;
   padding-left: 20px;
 }
 
@@ -4379,21 +4378,24 @@ input[type="submit"].btn.btn-mini {
   padding-right: 20px;
   padding-left: 20px;
   background-color: #1570b0;
-  /*background-image: -moz-linear-gradient(top, #020202, #020202);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#020202), to(#020202));
-  background-image: -webkit-linear-gradient(top, #020202, #020202);
-  background-image: -o-linear-gradient(top, #020202, #020202);
-  background-image: linear-gradient(to bottom, #020202, #020202);
-  background-repeat: repeat-x;*/
-  border: 1px solid #000000;
+  background-image: -moz-linear-gradient(top, #2278b4, #146aa6);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2278b4), to(#146aa6));
+  background-image: -webkit-linear-gradient(top, #2278b4, #146aa6);
+  background-image: -o-linear-gradient(top, #2278b4, #146aa6);
+  background-image: linear-gradient(to bottom, #2278b4, #146aa6);
+  background-repeat: repeat-x;
+  /*border: 1px solid #000000;*/
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
-  /*filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff020202', endColorstr='#ff020202', GradientType=0);*/
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2278b4', endColorstr='#ff146aa6', GradientType=0);
   *zoom: 1;
-  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
-          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  -webkit-box-shadow: 20 10px 14px rgba(0, 0, 0, 1.965);
+     -moz-box-shadow: 20 10px 14px rgba(0, 0, 0, 1.965);
+          box-shadow: 20 10px 14px rgba(0, 0, 0, 1.965);
+  -webkit-border-radius: 40px;
+     -moz-border-radius: 40px;
+          border-radius: 40px;
 }
 
 .navbar-inner:before,
@@ -4517,20 +4519,21 @@ input[type="submit"].btn.btn-mini {
 .navbar-search {
   position: relative;
   float: left;
-  margin-top: 10px;
+  margin-top: 15px;
   margin-bottom: 0;
 }
 
 .navbar-search .search-query {
+  background-color: #ff8800;
   padding: 4px 14px;
   margin-bottom: 0;
   font-family: 'Droid Sans', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  -webkit-border-radius: 15px;
+/*  -webkit-border-radius: 15px;
      -moz-border-radius: 15px;
-          border-radius: 15px;
+          border-radius: 15px;*/
 }
 
 .navbar-static-top {
@@ -4566,9 +4569,9 @@ input[type="submit"].btn.btn-mini {
 .navbar-fixed-bottom .navbar-inner {
   padding-right: 0;
   padding-left: 0;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
+  -webkit-border-radius: 15px;
+     -moz-border-radius: 15px;
+          border-radius: 15px;
 }
 
 .navbar-static-top .container,
@@ -4583,9 +4586,9 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner {
-  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-     -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 1px 100px rgba(0, 0, 0, 0.9);
+     -moz-box-shadow: 0 1px 100px rgba(0, 0, 0, 0.9);
+          box-shadow: 0 1px 100px rgba(0, 0, 0, 0.9);
 }
 
 .navbar-fixed-bottom {
@@ -6220,13 +6223,14 @@ hr {
 }
 
 .navbar .navbar-inner {
-  border-bottom: 1px solid #222222;
-  -webkit-border-radius: 0;
-     -moz-border-radius: 0;
-          border-radius: 0;
-  -webkit-box-shadow: none;
-     -moz-box-shadow: none;
-          box-shadow: none;
+  border-top: 1px solid #3d8abf;
+  /*border-bottom: 1px solid #222222;*/
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+     -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+          box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 }
 
 .navbar .brand {
