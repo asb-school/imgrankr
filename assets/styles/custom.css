@@ -1,10 +1,25 @@
 /* Custom CSS */
 
+@import url('http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,600,700');
+
 /*.glyphicon-search { background-position: -918px 0 }*/
 
+body {
+	color: #ffffff;
+	font-family: 'Titillium Web', sans-serif;
+}
+
+.body-content {
+	padding-top: 8px;
+}
+
 .brand-padding {
-  padding-top: 0px;
-  padding-left: 20px;
+	padding-top: 0px;
+	padding-left: 20px;
+}
+
+.row-container {
+	padding-top: 24px;
 }
 
 #search-custom {
@@ -101,5 +116,110 @@
 .icon-globe {
 	padding-top: 1px;
 	background: url(/images/icon-globe.png) center center no-repeat;
+}
+
+.icon-like {
+	background: url(/images/icon-like.png) left center no-repeat;
+}
+
+.icon-tag {
+	float: right;
+	width: 20px;
+	height: 21px;
+	padding-right: 5px;
+	background: url(/images/icon-tag.png) center center no-repeat;
+	-khtml-opacity:.50; 
+	-moz-opacity:.50; 
+	-ms-filter:"alpha(opacity=50)";
+	filter:alpha(opacity=50);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+	opacity:.50; 
+}
+
+.icon-like {
+	float: right;
+	width: 20px;
+	height: 18px;
+	padding-right: 5px;
+	background: url(/images/icon-like.png) center center no-repeat;
+	-khtml-opacity:.50; 
+	-moz-opacity:.50; 
+	-ms-filter:"alpha(opacity=50)";
+	filter:alpha(opacity=50);
+	filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0.5);
+	opacity:.50; 
+}
+
+/*border-top: 1px solid #3d8abf;*/
+
+.post-box {
+	width: 298px;
+	height: 270px;
+	background-color: #2278b4;
+	/*background-color: #9cc6e0;*/
+	/*border-top: 1px solid rgba(255,255,255,0.1);*/
+   	-webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+ 	-webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.post-image {
+	width: 100%;
+	height: 180px;
+	overflow: hidden;
+	background-color: #ffffff;
+}
+
+.post-image img {
+	width: 300px;
+	height: 180px;
+	margin: 0;
+}
+
+.image-title {
+	color: #ffffff;
+	width: 260px;
+	height: 38px;
+	padding-top: 12px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.post-details {
+	float: right;
+	width: 100%;
+}
+
+.hashtag {
+	color: #68b7e8;
+	float: right;
+	font-size: 14px;
+	font-weight: 600;
+	padding-right: 16px;
+}
+
+.hashtag a {
+	color: #68b7e8;
+	font-size: 14px;
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.hashtag a:hover {
+	color: #a7ddff;
+}
+
+.likes {
+	color: #68b7e8;
+	float: right;
+	font-size: 14px;
+	font-weight: 600;
+	padding-right: 16px;
 }
 

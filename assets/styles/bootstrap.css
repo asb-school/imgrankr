@@ -1,4 +1,5 @@
-@import url('//fonts.googleapis.com/css?family=Droid+Sans:400,700');
+/*@import url('//fonts.googleapis.com/css?family=Droid+Sans:400,700');*/
+
 
 /*!
  * Bootstrap v2.3.1
@@ -231,7 +232,6 @@ textarea {
 body {
   padding-top: 80px;
   margin: 0;
-  font-family: 'Droid Sans', sans-serif;
   font-size: 14px;
   line-height: 20px;
   color: #999999;
@@ -6222,9 +6222,9 @@ hr {
 .navbar .navbar-inner {
   border-top: 1px solid #3d8abf;
   /*border-bottom: 1px solid #222222;*/
-  -webkit-border-radius: 0px;
-     -moz-border-radius: 0px;
-          border-radius: 0px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
   -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
      -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
           box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
