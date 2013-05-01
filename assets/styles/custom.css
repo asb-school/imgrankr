@@ -174,8 +174,8 @@ body {
 }
 
 .post-image img {
-	width: 300px;
-	height: 180px;
+	
+	overflow: hidden;
 	margin: 0;
 }
 

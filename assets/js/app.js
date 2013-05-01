@@ -25,6 +25,16 @@ application.factory('Post', function($resource)
 	return $resource('/api/post');
 });
 
+
+// application.run(function($rootScope)
+// {
+// 	// $rootScope.$on('asd', function (event, args)
+// 	// {
+// 	// 	// $rootScope.$broadcast('handleBroadcast', args);
+// 	// 	console.log('need to update');
+// 	// });
+// });
+
 // Service for posts
 
 
@@ -205,15 +215,22 @@ function createPost($scope, Post)
 		newPost.hashtag = post.hashtag;
 
 		newPost.$save();
+
+		// $scope.emit('asd', { message: 'createdPost' });
 	}
 }
 
 
 function postController($scope, $routeParams, Post)
 {
+	console.log($routeParams.id);
+
 	// Get a post for given parameter id
-	var post = Post.query({ id: $routeParams.id }, function()
+	var post = Post.get({ id: $routeParams.id }, function()
 	{
-		$scope.post = post[0]; // This will probably blow up at some point
+		$scope.post = post; // This will probably blow up at some point
 	});
 }
+
+// createdPost.$inject = ['$scope'];
+// postController.$inject = ['$scope'];

@@ -66,6 +66,31 @@ var PostController =
 		if (request.param('hashtag'))
 		{
 			Post.findAll({ where: { hashtag: request.param('hashtag') } }, { options: { limit: 10, sort: { likes: -1 } } }).done(sendResults);
+			console.log('search by hashtag');
+		}
+
+		else if (request.param('id'))
+		{
+			console.log('need to search by id');
+			Post.find(parseInt(request.param('id'))).done(function (error, post)
+			{
+				if (error) 
+				{
+					return response.send(error, 500);
+				}
+
+				else
+				{
+					if (post)
+					{
+						return response.send(post.values);
+					}
+					else
+					{
+						return response.json({ error: 'No post found' }, 500);
+					}
+				}
+			});
 		}
 
 		// Default -> all hashtags
@@ -79,7 +104,7 @@ var PostController =
 	// Find post by id
 	findById: function(request, response)
 	{
-		Post.find(request.param('id')).done(function (error, post)
+		Post.find(parseInt(request.param('id'))).done(function (error, post)
 		{
 			if (error) 
 			{
